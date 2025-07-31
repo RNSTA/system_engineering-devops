@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
-# A Bash script that displays all currently running processes, including those without a TTY, in a user-friendly hierarchical format
-ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,cmd --forest
+# A Bash script that displays all currently running processes with USER, STARTED time (HH:MM:SS), and CMD in a hierarchical format
+ps -eo user,lstart,cmd --forest | awk '
+BEGIN {
+    print "USER     STARTED   CMD"
+}
+NR > 1 {
+    time = $(5)
+    cmd = substr($0, index($0,$6))
+    printf "%-8s %s %s\n", $1, time, cmd
+}'
