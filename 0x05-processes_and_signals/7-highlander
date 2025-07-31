@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# 7-highlander script that:
-# - Runs infinite loop printing "To infinity and beyond" every 2 seconds and traps SIGTERM
-# - When run with --stop, sends SIGTERM to running 7-highlander processes without using kill or killall
+# 7-highlander script:
+# - Runs infinite loop printing "To infinity and beyond" every 2 seconds
+# - On SIGTERM, prints "OK" (exactly) and continues running
+# - When run with --stop, sends SIGTERM to running 7-highlander processes without kill/killall
 
 if [[ "$1" == "--stop" ]]; then
-  # Stopping mode: send SIGTERM to all running 7-highlander processes (except this one)
+  # Send SIGTERM to all running 7-highlander except this process
   pids=$(pgrep -f 7-highlander | grep -v $$)
   if [ -n "$pids" ]; then
     for pid in $pids; do
@@ -14,8 +15,7 @@ if [[ "$1" == "--stop" ]]; then
   exit 0
 fi
 
-# Normal running mode: trap SIGTERM and print message but do not exit
-trap 'echo "I am invincible!!!"' SIGTERM
+trap 'echo "OK"' SIGTERM
 
 while true; do
   echo "To infinity and beyond"
