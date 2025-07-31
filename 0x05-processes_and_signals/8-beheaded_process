@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# or use: #!/bin/bash
 
-# Get the PID of the running 7-highlander process (script, not editor)
-pid=$(ps -eo pid,comm,args | grep "[7]-highlander" | awk '{print $1}')
+# Get the exact PID of the 7-highlander process using pgrep
+pid=$(pgrep -f "^./7-highlander$")
 
-# Kill only if a PID was found
+# Kill it using SIGKILL (signal 9), only if a PID was found
 if [ -n "$pid" ]; then
   kill -9 "$pid"
 fi
