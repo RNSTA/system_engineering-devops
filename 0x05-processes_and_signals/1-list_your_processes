@@ -1,13 +1,3 @@
 #!/usr/bin/env bash
-# A Bash script that displays all running processes with USER, full STARTED time (HH:MM:SS), and CMD
-ps -eo user,lstart,cmd --no-headers | awk '
-BEGIN {
-    print "USER STARTED CMD"
-}
-{
-    user = $1
-    started = $(4)
-    time = $(5)
-    cmd = substr($0, index($0,$7))
-    print user, time, cmd
-}'
+# A Bash script that displays all running processes, including those without a TTY, using a user-oriented format
+ps -eo user
