@@ -1,1 +1,1 @@
-## Practicing shell navigation and file manipulation 
+## Practicing shell navigation & file manipulation 
