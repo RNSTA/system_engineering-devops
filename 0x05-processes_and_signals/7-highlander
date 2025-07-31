@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# 7-highlander script:
+# Prints "To infinity and beyond" every 2 seconds
+# Prints "OK" exactly when receiving SIGTERM and keeps running
+# When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
 trap 'printf "OK\n"' SIGTERM
 
 while true; do
