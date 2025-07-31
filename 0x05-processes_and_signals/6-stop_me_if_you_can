@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# A Bash script that stops 4-to_infinity_and_beyond process without using kill or killall, using perl to send SIGTERM
+
+pids=$(pgrep -f 4-to_infinity_and_beyond)
+
+if [ -n "$pids" ]; then
+  for pid in $pids; do
+    perl -e "kill 15, $pid"
+  done
+fi
