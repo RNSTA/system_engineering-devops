@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# A Bash script that silently kills all running 4-to_infinity_and_beyond processes
+# A Bash script that silently kills all running 4-to_infinity_and_beyond processes without ShellCheck warnings
 
 pids=$(pgrep -f 4-to_infinity_and_beyond)
 
 if [ -n "$pids" ]; then
-  kill $pids 2>/dev/null
+  for pid in $pids; do
+    kill "$pid" 2>/dev/null
+  done
 fi
