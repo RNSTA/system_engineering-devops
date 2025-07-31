@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Get the PID of the exact '7-highlander' process
-pid=$(pgrep -x "7-highlander")
-# If PID found, send SIGKILL (signal 9)
+# Get the PID(s) of the running 7-highlander process
+pid=$(ps -eo pid,comm | awk '$2=="7-highlander" {print $1}')
+# Kill the process if found
 if [ -n "$pid" ]; then
   kill -9 "$pid"
 fi
