@@ -1,2 +1,2 @@
 #!/bin/bash
-set -o posix set
+printf "%s\n%s\n" "$(compgen -v)" "$(compgen -A function)"
