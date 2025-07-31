@@ -1,2 +1,2 @@
 #!/bin/bash
-( printenv; compgen -v | while read v; do printenv "$v" >/dev/null 2>&1 || echo "$v=${!v}"; done; declare -F | awk '{print $3"="}' )
+( printenv; compgen -v  while read v; do printenv "$v" >/dev/null 2>&1  echo "$v=${!v}"; done; declare -F  awk '{print $3"="}' )
