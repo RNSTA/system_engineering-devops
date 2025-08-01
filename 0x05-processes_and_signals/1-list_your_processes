@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # A Bash script that displays the usernames of currently running processes (one per line, no headers)
-ps -eo user= | sort | uniq
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
