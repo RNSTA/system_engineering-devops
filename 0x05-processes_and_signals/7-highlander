@@ -3,7 +3,7 @@
 # Prints "To infinity and beyond" every 2 seconds
 # Prints "I am invincible!!!" and "OK" when receiving SIGTERM and keeps running
 # When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
-trap 'printf "I am invincible!!!\nOK\n"' SIGTERM
+trap 'printf "I am invincible!!!"' SIGTERM
 
 if [ "$1" = "--stop" ]; then
     perl -e '
