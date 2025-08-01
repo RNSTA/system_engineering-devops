@@ -3,7 +3,7 @@
 # Prints "To infinity and beyond" every 2 seconds
 # Prints "OK" exactly when receiving SIGTERM and keeps running
 # When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
-`trap 'printf "I am invincible!!!"' SIGTERM`
+`trap 'printf " OK\n" "I am invincible!!!"' SIGTERM`
 
 while true; do
   echo "To infinity and beyond"
