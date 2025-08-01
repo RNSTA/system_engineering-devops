@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# Trap SIGTERM and print "I am invincible!!!" and "OK"
+# 7-highlander script:
+# Prints "To infinity and beyond" every 2 seconds
+# Prints "OK" exactly when receiving SIGTERM and keeps running
+# When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
+
 trap 'echo "I am invincible!!!"; echo "OK"' SIGTERM
 
-# Infinite loop printing the message every 2 seconds
 while true; do
   echo "To infinity and beyond"
   sleep 2
