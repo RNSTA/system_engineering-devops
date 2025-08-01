@@ -3,8 +3,12 @@
 # Prints "To infinity and beyond" every 2 seconds
 # Prints "I am invincible!!!" and "OK" when receiving SIGTERM and keeps running
 # When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
+
+# Set trap at the very top to avoid timing issues
+trap 'printf "I am invincible!!!\nOK\n"' SIGTERM
+
+# Check for --stop mode
 if [ "$1" = "--stop" ]; then
-    # Use perl to find and send SIGTERM to running 7-highlander process
     perl -e '
         use strict;
         use warnings;
@@ -18,10 +22,8 @@ if [ "$1" = "--stop" ]; then
     '
     exit
 fi
-# Trap SIGTERM: respond with both messages, then keep running
-trap 'echo "I am invincible!!!"; echo "OK"' SIGTERM
 
-# Infinite loop
+# Main loop
 while true; do
     echo "To infinity and beyond"
     sleep 2
