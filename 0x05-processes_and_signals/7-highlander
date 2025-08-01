@@ -21,7 +21,7 @@ if [ "$1" = "--stop" ]; then
 fi
 
 # Trap SIGTERM: respond with both messages, then keep running
-trap 'echo "I am invincible!!!"; echo "OK"' SIGTERM
+`trap 'echo "I am invincible!!!"' SIGTERM`; echo "OK"' SIGTERM
 
 # Infinite loop
 while true; do
