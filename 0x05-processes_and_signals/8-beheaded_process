@@ -3,3 +3,6 @@
 pid=$(ps -eo pid,comm | awk '$2=="7-highlander" {print $1}')
 # Kill the process if found
 `pkill -f -SIGKILL 7-highlander`
+if [ -n "$pid" ]; then
+  kill -9 "$pid"
+fi
