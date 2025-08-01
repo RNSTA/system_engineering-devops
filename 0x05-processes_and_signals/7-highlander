@@ -1,26 +1,13 @@
 #!/usr/bin/env bash
-# 7-highlander script:
-# Prints "To infinity and beyond" every 2 seconds
-# Prints "I am invincible!!!" and "OK" when receiving SIGTERM and keeps running
-# When run with --stop, sends SIGTERM to running 7-highlander processes (using perl)
-trap 'printf "I am invincible!!!"' SIGTERM
+
+trap 'echo I am invincible!!!' SIGTERM
 
 if [ "$1" = "--stop" ]; then
-    perl -e '
-        use strict;
-        use warnings;
-        my $target = "7-highlander";
-        open(my $ps, "-|", "ps -eo pid,comm") or die "Failed to run ps";
-        while (<$ps>) {
-            if ($_ =~ /^\s*(\d+)\s+$target$/) {
-                kill "TERM", $1;
-            }
-        }
-    '
-    exit
+  pkill -f 7-highlander
+  exit
 fi
 
 while true; do
-    echo "To infinity and beyond"
-    sleep 2
+  echo "To infinity and beyond"
+  sleep 2
 done
