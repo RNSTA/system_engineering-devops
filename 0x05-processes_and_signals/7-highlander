@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
-# Script that either runs an infinite loop printing "To infinity and beyond" or sends SIGTERM to itself using --stop
-
-if [ "$1" = "--stop" ]; then
-    # Send SIGTERM to the running 7-highlander process
-    pkill -f "$0"
-    exit
-fi
-
-# Trap SIGTERM: print a message and continue running
-trap 'echo "I am invincible!!!"' SIGTERM
-
-# Infinite loop printing the message every 2 seconds
+# Script that handles SIGTERM signal gracefully
+trap "echo I am invincible!!!" SIGTERM
 while true
 do
-    echo "To infinity and beyond"
-    sleep 2
+ echo "To infinity and beyond"
+ sleep 2
 done
