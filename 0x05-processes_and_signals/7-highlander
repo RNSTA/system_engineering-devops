@@ -9,6 +9,7 @@ handle_sigterm() {
 trap 'handle_sigterm' SIGTERM
 # Your script's main logic here
 while true; do
-    echo "I am invincible!!!"
-    sleep 1
+    echo "To infinity and beyond"
+ sleep 1
+trap echo "I am invincible!!!" SIGTERM
 done
