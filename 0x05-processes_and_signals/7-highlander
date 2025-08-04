@@ -2,14 +2,13 @@
 # This script handles SIGTERM signal
 # Function to handle SIGTERM
 handle_sigterm() {
-    echo "SIGTERM signal received. Exiting gracefully..."
+    echo "I am invincible!!!"
     exit 0
 }
 # Trap SIGTERM signal
 trap 'handle_sigterm' SIGTERM
-# Your script's main logic here
+#  Infinite loop
 while true; do
     echo "To infinity and beyond"
- sleep 1
-trap echo "I am invincible!!!" SIGTERM
+  sleep 2
 done
