@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script runs an infinite loop and handles the SIGTERM signal
-trap "echo OK" SIGTERM
+trap "echo I am invincible!!!" SIGTERM
 
 while true
 do
