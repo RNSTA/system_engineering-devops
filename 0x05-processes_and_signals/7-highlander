@@ -2,8 +2,8 @@
 # This script runs an infinite loop and handles the SIGTERM signal
 
 trap 'echo I am invincible!!!; exit 0' SIGTERM
-
 while true
 do
-    sleep 1
+echo "To infinity and beyond"    
+   sleep 1
 done
